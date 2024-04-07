@@ -1,4 +1,4 @@
-Installing Python 3.12 using Pyenv on RedHat Enterprise Linux Server 7.9
+# Installing Python 3.12 using Pyenv on RedHat Enterprise Linux Server 7.9
 
 I recently tried to install Python 3.12 on Red Hat Enterprise Linux server edition 7.9. The system already had an older version of Python installed. Because the system is shared with others, I didn’t want to overwrite the default Python at the system level. My intention was to install the latest Python specifically for my projects. To complete this task, I start by installing pyenv, a tool for managing Python versions, and then utilize it to install the latest Python version on the system. 
 
