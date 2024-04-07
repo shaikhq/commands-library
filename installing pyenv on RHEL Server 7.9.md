@@ -1,22 +1,17 @@
 # Installing Python 3.12 using Pyenv on RedHat Enterprise Linux Server 7.9
 
-I recently tried to install Python 3.12 on Red Hat Enterprise Linux server edition 7.9. The system already had an older version of Python installed. Because the system is shared with others, I didn’t want to overwrite the default Python at the system level. My intention was to install the latest Python specifically for my projects. To complete this task, I start by installing pyenv, a tool for managing Python versions, and then utilize it to install the latest Python version on the system. 
+I recently tried to install Python 3.12 on Red Hat Enterprise Linux server edition 7.9. The system already had an older version of Python installed. Because the system is shared with others, I didn’t want to overwrite the default Python at the system level. My intention was to install the latest Python specifically for my projects. To complete this task, I started by installing pyenv, a tool for managing Python versions, and then used it to install the latest Python version on the system. 
 
-During the installation of Python 3.12, I encountered an error stating that OpenSSL was missing from the system. Once I finished searching, I ran this command to install OpenSSL. The installation finished with no errors. Next, I returned to the python 3.12 installation step, only to encounter the following error. 
+During the installation of Python 3.12, I encountered an error stating that OpenSSL was missing from the system. Next, I installed OpenSSL with no errors. Next, I returned to the python 3.12 installation step, only to encounter the following error. 
+
+Traceback (most recent call last): File "", line 1, in File "/home/myvm/.pyenv/versions/3.12.2/lib/python3.12/ssl.py", line 100, in import _ssl # if we can't import it, let the error propagate ^^^^^^^^^^^ ModuleNotFoundError: No module named '_ssl' ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib?
 
 It was confusing because I knew the system had OpenSSL. What was going on? After conducting some research, I thought it would be a good idea to check the minimum OpenSSL version needed for Python 3.12 and compare it to the version I have installed. I found that the default OpenSSL version chosen by RedHat, 1.01, was not compatible with Python 3.12 which required at least 1.1.1. Subsequently, I installed the correct OpenSSL version and successfully completed the installation of Python 3.12.
 
 
-Background / Problem:
 ```shell
 sudo yum install openssl-devel
 ```
-
-Traceback (most recent call last): File "", line 1, in File "/home/myvm/.pyenv/versions/3.12.2/lib/python3.12/ssl.py", line 100, in import _ssl # if we can't import it, let the error propagate ^^^^^^^^^^^ ModuleNotFoundError: No module named '_ssl' ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib?
-
-The installation of openssl library was successful, but I still kept getting the above error. 
-
-After some investigation, I figured that the default openssl supported by RHEL Server 7.9 is OpenSSL 1.0.2. Python 3.12.2 doesn't work with that OpenSSL version, it  needs at least OpenSSL 1.1.1. 
 
 I ran the following command to list the available openssl versions that I can choose from to install:
 ```shell
