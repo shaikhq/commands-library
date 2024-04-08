@@ -13,7 +13,7 @@ It was confusing because I knew the system had OpenSSL. What was going on? After
 sudo yum install openssl-devel
 ```
 
-I ran the following command to list the available openssl versions that I can choose from to install:
+I ran the following command to list the available openssl versions that I could choose from to install:
 ```shell
 yum list available | grep openssl
 ```
