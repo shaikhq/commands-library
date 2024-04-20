@@ -1,5 +1,3 @@
-# Useful Shell Commands
-
 # tmux (a tool equivalent to screen)
 __create a session__
 ```shell
