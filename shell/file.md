@@ -23,3 +23,8 @@ __search for files that contain an input string__
 ```shell
 grep -r "my_string" /search_dir
 ```
+
+__search within files with an extension__
+```shell
+grep -r --include="*.extension" "my_string" /search_dir
+```
