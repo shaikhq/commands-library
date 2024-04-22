@@ -19,4 +19,7 @@ __search for a file with part of its name within a directory and its subdirector
 ```shell
 find /search_dir -name '*partialname*'
 ```
-
+__search for files that contain an input string__
+```shell
+grep -r "my_string" /search_dir
+```
