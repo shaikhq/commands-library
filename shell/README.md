@@ -1,3 +1,9 @@
+# tar
+__uncompress__
+```shell
+tar -xzf file.tar.gz
+```
+
 # tmux (a tool equivalent to screen)
 __create a session__
 ```shell
