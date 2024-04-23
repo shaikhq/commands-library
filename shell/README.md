@@ -43,6 +43,14 @@ __kill a session__
 tmux kill-session -t [session id]
 ```
 # files and folders
+__sort files in a directory by their names, using numerical order__
+```shell
+ls -1v *.msg .
+```
+for reverse numerical order,
+```shell
+ls -1vr *.msg .
+```
 __count the number of lines in a file__
 ```shell
 wc -l filename
