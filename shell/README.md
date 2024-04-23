@@ -1,3 +1,9 @@
+# linux distribution
+__find my linux distribution__
+```shell
+cat /etc/os-release
+```
+
 # shell
 __finding my shell type__
 ```shell
