@@ -1,3 +1,9 @@
+# history
+__check the number of commands are preserved in command history__
+```shell
+echo $HISTSIZE
+```
+
 # linux distribution
 __find my linux distribution__
 ```shell
