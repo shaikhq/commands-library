@@ -1,3 +1,9 @@
+# shell
+__finding my shell type__
+```shell
+echo $SHELL
+```
+
 # tar
 __uncompress__
 ```shell
