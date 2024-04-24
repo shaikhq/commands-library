@@ -111,4 +111,11 @@ git pull origin main
 
 Then do the push (step 4 above)
 
+__bring remote repo content to local__
+```shell
+git clone https://github.com/myrepo.git
+```
+
+Replace the URL with the actual repo URL from Github. 
+
 
