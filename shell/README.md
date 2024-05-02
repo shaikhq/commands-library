@@ -22,6 +22,21 @@ __uncompress__
 tar -xzf file.tar.gz
 ```
 
+-x: Extract files from an archive.
+-z: Decompress the archive with gunzip.
+-v: Verbosely list the files processed.
+-f: Use archive file.
+
+__compress__
+```shell
+tar -czvf compressed_file.tar.gz directory_to_compress
+```
+
+-c: Create a new archive.
+-z: Compress the archive using gzip.
+-v: Verbosely list the files processed.
+-f: Use archive file name provided as input
+
 # tmux (a tool equivalent to screen)
 __create a session__
 ```shell
@@ -117,5 +132,28 @@ git clone https://github.com/myrepo.git
 ```
 
 Replace the URL with the actual repo URL from Github. 
+
+#pyenv
+__installing pyenv on MacOS__
+```shell
+brew install pyenv
+```
+
+__listing available pythons that can be installed via pyenv__
+```shell
+pyenv install --list
+```
+
+__pyenv - installing a new python (e.g., 3.12)__
+```shell
+pyenv install 3.12
+```
+
+While installing python using pyenv, I got errors that `ssl` and `readline` modules 
+were missing. I installed them using the following commands:
+
+
+
+
 
 

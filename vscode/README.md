@@ -25,3 +25,6 @@ Next, I clicked `Customize Notebook Layout`
 
 Finally, I toggled the following option in the notebook's setting:
 ![alt text](image-3.png)
+
+__how to open a markdown file in preview mode__
+`Cmd + Shift + V`
