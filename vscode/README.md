@@ -28,3 +28,16 @@ Finally, I toggled the following option in the notebook's setting:
 
 __how to open a markdown file in preview mode__
 `Cmd + Shift + V`
+
+__Notebook cell - changing to code cell__
+`y`
+
+__Notebook cell - changing to markdown cell__
+`m`
+
+__creating a custom shortcut__
+From the settings, select "Keyboard Shortcuts". Search for the target operation for which you want to create a new keyboard shortcut. Click the edit button (pencil icon). Next type a new key combination for the shortcut and press enter. 
+![alt text](image-4.png)
+
+# VSCode Insights
+- In the editor panel, if you go to an open file, on the left file explorer that same file is selected. 

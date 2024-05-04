@@ -1,4 +1,8 @@
 # Steps to installing latest python (e.g., 3.12.3) on MacOS Sonoma 14.3.1
+
+
+
+
 1. Download the latest python installer from this link: https://www.python.org/downloads/macos/
 2. Double click the installer to install the downloaded Python on your MacOS.
 3. Open your shell profile file. You can find your shell type by running the following command:
