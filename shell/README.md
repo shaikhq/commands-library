@@ -96,6 +96,34 @@ __search within files with an extension__
 ```shell
 grep -r --include="*.extension" "my_string" /search_dir
 ```
+
+__search a string within a file__
+```shell
+grep "mystring" filename
+```
+
+# vi
+__how to search for a string inside vi editor?__
+1. Open the file in vi editor.
+2. Press / to start a forward search or ? to start a backward search.
+3. Type the string you are looking for.
+4. Press Enter to start the search.
+e.g.,
+`/mystring`
+
+or `?mystring`
+5. `n` will take you through each match at a time. 
+
+__how to see line numbers in vi?__
+`:set number`
+
+__how to delete a range of lines from a file using vi?__
+`:start_line_no,end_line_no d`
+e.g., `:5,10 d`
+
+__how to delete from a line to the end of the file?__
+`:start_line_no,$d`
+
 # git
 ## Pushing code - new content - e.g., file and changes to existing files - to github
 1. navigate to local repo:
@@ -133,7 +161,7 @@ git clone https://github.com/myrepo.git
 
 Replace the URL with the actual repo URL from Github. 
 
-#pyenv
+# pyenv
 __installing pyenv on MacOS__
 ```shell
 brew install pyenv

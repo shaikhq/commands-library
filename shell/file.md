@@ -33,3 +33,8 @@ __move all files except a few files__
 ```shell
 find /source/directory -type f -not -name 'file_to_exclude1' -not -name 'file_to_exclude2' -exec mv {} /destination/directory \;
 ```
+
+__search a string within a file__
+```shell
+grep "mystring" filename
+```
