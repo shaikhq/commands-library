@@ -38,3 +38,21 @@ sudo make altinstall
 ```shell
 python3.12 --version
 ```
+
+## Unintalling the Python that was installed using the above process
+For some reason, I needed to re-install this Python. Here are the steps I followed for removing Python from the system. Then I installed it again using the above process. 
+
+Removed the following directories for `Python 3.12.3`.
+
+__Python binary__
+```shell
+sudo rm /usr/local/bin/python3.12
+```
+__Python-related executables__
+```shell
+sudo rm -rf /usr/local/lib/python3.12
+```
+```shell
+sudo rm -rf /usr/local/include/python3.12
+```
+
