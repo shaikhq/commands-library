@@ -102,6 +102,12 @@ __search a string within a file__
 grep "mystring" filename
 ```
 
+__download a file from the internet__
+```shell
+curl -O https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz
+```
+Note: `-O` is letter O, not digit 0. 
+
 # vi
 __how to search for a string inside vi editor?__
 1. Open the file in vi editor.
