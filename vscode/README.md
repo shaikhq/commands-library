@@ -50,7 +50,8 @@ From the extensions view, installed the following 2 extensions:
 __got this error message from Jupyter notebook cell execution__
 `The kernel failed to start due to the missing module '_sqlite3'. Consider installing this module.`
 
-
+I installed this OS package on my RHEL 9.2 system, however, I still kept seeing this error. After further investigation, I figured that this package 
+needs to be installed on the RHEL system before building Python from the source. I uninstalled Python and re-installed it, this time sqlite was installed on the OS. Then the error was gone. I have documented the installation process in this [doc](../python/Python3.12.3-Instllation-RHEL9.2.md)
 
 # VSCode Insights
 - In the editor panel, if you go to an open file, on the left file explorer that same file is selected. 
