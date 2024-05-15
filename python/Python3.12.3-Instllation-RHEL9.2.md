@@ -12,7 +12,7 @@ Note: `-O` is letter O, not digit 0.
 
 Next you'll build this python from the download source code. Here's the build process:
 2. Install the dependencies for building Python:
-sudo yum install gcc openssl-devel bzip2-devel libffi-devel
+sudo yum install gcc openssl-devel bzip2-devel libffi-devel sqlite-devel
 
 3. Uncompress the Python source code from the download `.tgz` file:
 ```shell
