@@ -33,3 +33,13 @@ for i in range(10):  # replace the value in range with the number of time the lo
 # Concatenate all the DataFrames along the vertical axis
 final_df = pd.concat(dfs, axis=0)
 ```
+
+__from the venv command prompt, how to print the path to the venv being used?__
+```shell
+echo $VIRTUAL_ENV
+```
+
+__how to export the list of installed packages from a venv?__
+```shell
+pip freeze > requirements.txt
+```
