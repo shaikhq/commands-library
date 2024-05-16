@@ -53,5 +53,47 @@ __got this error message from Jupyter notebook cell execution__
 I installed this OS package on my RHEL 9.2 system, however, I still kept seeing this error. After further investigation, I figured that this package 
 needs to be installed on the RHEL system before building Python from the source. I uninstalled Python and re-installed it, this time sqlite was installed on the OS. Then the error was gone. I have documented the installation process in this [doc](../python/Python3.12.3-Instllation-RHEL9.2.md)
 
+__on my RHEL 9.2 VM, I kept getting an error message that Pylance has crashed__
+I kept getting this annoying message:
+```Pylance has crashed. Would you like to try using a Node.js executable to run the language server?
+```
+
+In fixed it as follows:
+1. Installed Node.js 20.x LTS:
+```shell
+curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
+```
+
+```shell
+sudo yum install -y nsolid
+```
+
+2. Verified the installation of node:
+```shell
+node -v
+```
+
+```shell
+npm -v
+```
+
+3. Checked the path to the node executable:
+```shell
+which node
+```
+
+4. In VSCode settings, added the following:
+{
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    "terminal.integrated.shellArgs.linux": ["-l"],
+    "terminal.integrated.env.linux": {
+        "PATH": "/usr/bin:${env:PATH}"
+    }
+}
+
+I opened the settings.json as follows:
+`Ctrl+Shift+P` and then typed `Open Settings (JSON)`.
+
+
 # VSCode Insights
 - In the editor panel, if you go to an open file, on the left file explorer that same file is selected. 
