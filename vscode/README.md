@@ -1,3 +1,5 @@
+# Quick Commands / Tips
+
 __jump to the beginning of a file__
 Mac: `Cmd + Up`
 
@@ -39,7 +41,9 @@ __creating a custom shortcut__
 From the settings, select "Keyboard Shortcuts". Search for the target operation for which you want to create a new keyboard shortcut. Click the edit button (pencil icon). Next type a new key combination for the shortcut and press enter. 
 ![alt text](image-4.png)
 
-__after creating a notebook(.ipynb) in a VSCode project, I kept seeing a message like the following__
+
+# Long-form Tips / Troubleshooting
+## after creating a notebook(.ipynb) in a VSCode project, I kept seeing a message like the following
 `Install/Enable python extensions for Jupyter Notebok`
 
 I fixed this issue with the following step:
@@ -47,13 +51,13 @@ From the extensions view, installed the following 2 extensions:
 1. `Python` by Microsoft
 2. `Jupyter` by Microsoft
 
-__got this error message from Jupyter notebook cell execution__
+## got this error message from Jupyter notebook cell execution
 `The kernel failed to start due to the missing module '_sqlite3'. Consider installing this module.`
 
 I installed this OS package on my RHEL 9.2 system, however, I still kept seeing this error. After further investigation, I figured that this package 
 needs to be installed on the RHEL system before building Python from the source. I uninstalled Python and re-installed it, this time sqlite was installed on the OS. Then the error was gone. I have documented the installation process in this [doc](../python/Python3.12.3-Instllation-RHEL9.2.md)
 
-__on my RHEL 9.2 VM, I kept getting an error message that Pylance has crashed__
+## on my RHEL 9.2 VM, I kept getting an error message that Pylance has crashed
 I kept getting this annoying message:
 ```Pylance has crashed. Would you like to try using a Node.js executable to run the language server?
 ```
