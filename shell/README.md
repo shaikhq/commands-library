@@ -37,6 +37,11 @@ tar -czvf compressed_file.tar.gz directory_to_compress
 -v: Verbosely list the files processed.
 -f: Use archive file name provided as input
 
+__when compressing a directory, how to skip any subdirectory with a given name?__
+```shell
+tar -czvf compressed.tar.gz --exclude='*subdir_to_exclude*' /directory/to/compress
+```
+
 # tmux (a tool equivalent to screen)
 __create a session__
 ```shell
@@ -82,6 +87,15 @@ __copy the first 10 lines from a file to a new file__
 ```shell
 head -n 10 input.txt > output.txt
 ```
+
+__from a directory, see only the most recent file__
+```shell
+ls -lt | head -n 2
+```
+
+The first part of the above composite command will sort the list of files by their udpate timestamp. The 2nd part of the 
+command, after `|`, will show the top 2 results from the sorted result list. Since the first entry in the results show some directory 
+information. So, to see the actual first file  name, use `n -2` with `head`.
 
 __search for a file with part of its name within a directory and its subdirectories__
 ```shell
@@ -166,6 +180,33 @@ git clone https://github.com/myrepo.git
 ```
 
 Replace the URL with the actual repo URL from Github. 
+
+## Create a new branch of a Github repository
+Creating a branch allow you to make a copy of the code from the main branch and make changes in the copy without overwritting the copy in the main 
+branch. This can be useful when adding a new feature or fixing bug or adding any code that you don't to push in the main branch. 
+
+1. Navigate to the local copy of the repo. 
+2. Fetch the latest copy of the code from the remote repo (main):
+```shell
+git pull origin main
+```
+
+3. Create a new branch locally
+```shell
+git checkout -b new-branch-name
+```
+Running this command will take you to the new branch locally. 
+
+4. Make necessary changes and then commit these changes to the remote repo:
+```shell
+git add .
+git commit -m "Committing from my new branch"
+```
+
+5. Push the new branch and its content, including changes, to the remote repo:
+```shell
+git push origin new-branch-name
+```
 
 # pyenv
 __installing pyenv on MacOS__
