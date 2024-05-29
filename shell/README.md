@@ -208,6 +208,16 @@ git commit -m "Committing from my new branch"
 git push origin new-branch-name
 ```
 
+## Clone a branch from a git repo
+```shell
+git clone -b branch-name remote_repo_url
+```
+
+e.g.
+```shell
+git clone -b db2 https://github.com/shaikhq/QueryFormer.git
+```
+
 # pyenv
 __installing pyenv on MacOS__
 ```shell
