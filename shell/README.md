@@ -64,6 +64,7 @@ tmux kill-session -t [session id]
 ```
 
 __password-less SSH to a Linux machine__
+
 From my MacOS, I wanted to SSH to a RedHat Linux VM without typing password. Here are the steps that made it work:
 1. On MacOS, I generated a SSH public key using the following command:
 ```shell
