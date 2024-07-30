@@ -62,6 +62,21 @@ __kill a session__
 ```shell
 tmux kill-session -t [session id]
 ```
+
+__password-less SSH to a Linux machine__
+From my MacOS, I wanted to SSH to a RedHat Linux VM without typing password. Here are the steps that made it work:
+1. On MacOS, I generated a SSH public key using the following command:
+```shell
+ssh-keygen -t rsa -b 4096
+```
+
+2. Copied the above SSH key from MacOS to the remote Linux VM with the following command:
+```shell
+ssh-copy-id sq@linux-vm-address
+```
+
+After that, I could SSH to the Linux VM from my MacOS without typing password. Also, it worked with remote explorer in VSCode, which was running on my MacOS, and I was using it for remotely connecting to the Linux VM. 
+
 # files and folders
 __sort files in a directory by their names, using numerical order__
 ```shell
