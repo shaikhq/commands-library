@@ -26,3 +26,32 @@ git pull origin main
 ```
 
 Then do the push (step 4 above)
+
+# Creating a new branch
+- create a branch:
+```shell
+git branch branch-name
+```
+
+- switch to the new branch:
+```shell
+git checkout branch-name
+```
+
+- creating a new branch and switching to it using a single command:
+```shell
+git checkout -b branch-name
+```
+
+# Adding a fork URL to a local repo, which currently only has the origin repo link
+```shell
+git remote add sq_queryformer https://github.com/shaikhq/QueryFormer.git
+```
+
+Here, `sq_queryformer` is my fork whose link is above. 
+
+# Pushing a branch to my fork, instead of the origin repo
+```shell
+git push sq_queryformer main-copy
+```
+
