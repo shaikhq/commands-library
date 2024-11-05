@@ -224,6 +224,16 @@ git commit -m "Committing from my new branch"
 git push origin new-branch-name
 ```
 
+## Check out code from a git branch
+```shell
+git clone -b branch_name --single-branch repo_URL
+```
+
+e.g., 
+```shell
+git clone -b idugemea2024 --single-branch https://github.com/shaikhq/db2ml-labs.git
+```
+
 ## Clone a branch from a git repo
 ```shell
 git clone -b branch-name remote_repo_url
