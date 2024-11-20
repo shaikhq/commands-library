@@ -244,6 +244,11 @@ e.g.
 git clone -b db2 https://github.com/shaikhq/QueryFormer.git
 ```
 
+## List branches from the remote
+```shell
+git branch -r
+```
+
 # pyenv
 __installing pyenv on MacOS__
 ```shell
