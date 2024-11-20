@@ -249,6 +249,21 @@ git clone -b db2 https://github.com/shaikhq/QueryFormer.git
 git branch -r
 ```
 
+## To switch to a remote branch in Git that hasn’t been checked out locally yet, you can follow these steps:
+1. Fetch Remote Branches: Ensure your local repository is updated with the latest remote branches:
+   ```shell
+   git fetch
+  ```
+2. Switch to the Remote Branch: Use the following command to switch to a remote branch directly:
+```shell
+git checkout branch-name
+```
+Example:
+If the remote branch is origin/feature/new-feature:
+```shell
+git checkout feature/new-feature
+```
+
 # pyenv
 __installing pyenv on MacOS__
 ```shell
