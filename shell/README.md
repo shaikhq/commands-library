@@ -265,6 +265,21 @@ If the remote branch is origin/feature/new-feature:
 git checkout feature/new-feature
 ```
 
+## To bring non-conflicting changes from one branch to another in Git, you can use one of the following method:
+Steps:
+Switch to the Target Branch:
+```shell
+git checkout target-branch
+```
+
+Merge the Source Branch:
+```shell
+git merge source-branch
+```
+
+Git will automatically apply all non-conflicting changes from source-branch to target-branch.
+
+
 # pyenv
 __installing pyenv on MacOS__
 ```shell
