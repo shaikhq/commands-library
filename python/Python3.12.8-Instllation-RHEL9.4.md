@@ -19,12 +19,12 @@ sudo yum install gcc openssl-devel bzip2-devel libffi-devel sqlite-devel
 
 3. Uncompress the Python source code from the download `.tgz` file:
 ```shell
-tar xzf Python-3.12.3.tgz
+tar xzf Python-3.12.8.tgz
 ```
 
 4. Go to the uncompressed folder:
 ```shell
-cd Python-3.12.3
+cd Python-3.12.8
 ```
 
 5. Configure build:
@@ -43,9 +43,9 @@ python3.12 --version
 ```
 
 ## Unintalling the Python that was installed using the above process
-For some reason, I needed to re-install this Python. Here are the steps I followed for removing Python from the system. Then I installed it again using the above process. 
+For some reason, for uninstalling the python installed using the above, the following steps should work: 
 
-Removed the following directories for `Python 3.12.3`.
+Removed the following directories for `Python 3.12.8`.
 
 __Python binary__
 ```shell
