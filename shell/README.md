@@ -4,6 +4,12 @@ __check the number of commands are preserved in command history__
 echo $HISTSIZE
 ```
 
+# pip
+__installing `pip` on linux__
+```shell
+python3 -m ensurepip --upgrade
+```
+
 # linux distribution
 __find my linux distribution__
 ```shell
