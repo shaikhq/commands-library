@@ -55,3 +55,10 @@ Here, `sq_queryformer` is my fork whose link is above.
 git push sq_queryformer main-copy
 ```
 
+# How to remove a file from last commit
+```shell
+git reset --soft HEAD~1
+git restore --staged <file>
+git commit -m "Updated commit without the file"
+```
+
