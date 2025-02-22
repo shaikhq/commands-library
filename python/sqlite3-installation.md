@@ -26,7 +26,7 @@ To resolve the version mismatch without recompiling Python, I discovered the `py
 
 **Implementation Steps**
 
-1. **Install `pysqlite3-binary`**: I installed the package in my Python environment using:
+1. **Install `pysqlite3-binary`**: I installed the package in my Python environment, `venv`, using:
 
    ```bash
    pip install pysqlite3-binary
