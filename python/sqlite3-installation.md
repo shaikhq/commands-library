@@ -33,7 +33,7 @@ To resolve the version mismatch without recompiling Python, I discovered the `py
    ```
 
 
-2. **Override the Default `sqlite3` Module**: Before importing ChromaDB or any module that relies on SQLite3, I added the following code to my script or notebook:
+2. **Override the Default `sqlite3` Module**: Before importing ChromaDB or any module that relies on SQLite3, I added the following code to my  notebook:
 
    ```python
    __import__('pysqlite3')
