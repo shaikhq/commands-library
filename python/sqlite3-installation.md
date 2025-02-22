@@ -1,161 +1,55 @@
-When using `chromadb`, I faced the following error of unsupported `sqlite3` version. It turned out that Python3.12 comes with this unsupported version. Here's how I resolved this:
+# Resolving ChromaDB's SQLite3 Version Compatibility in Python Environments
 
-1. installed
+In the process of developing a Retrieval-Augmented Generation (RAG) pipeline, I integrated ChromaDB as my in-memory vector storage solution. ChromaDB is an open-source vector database designed for efficient storage and retrieval of vector embeddings, which is essential for tasks like semantic search and enhancing large language model (LLM) applications. Internally, ChromaDB utilizes SQLite3, a lightweight, serverless relational database engine, to manage its data storage. SQLite3 is embedded directly into applications, providing a self-contained, zero-configuration database engine that stores data in a single file on disk.
 
-```shell
-pip install pysqlite3-binary
+**Encountering the Issue**
+
+During implementation, I encountered an error when initializing ChromaDB within my Jupyter Notebook:
+
+
 ```
-
-2. upgraded chromadb to be compatible with the pysqlite3 version
-   ```shell
-   pip install --upgrade chromadb
-```
-
-3. Upgraded
-```shell
-pip install --upgrade langchain
-```
-Before using chromdb package in my notebook, I added the following code:
-```python
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+RuntimeError: Your system has an unsupported version of sqlite3. Chroma requires sqlite3 >= 3.35.0.
 ```
 
 
+This error indicated that ChromaDB requires SQLite3 version 3.35.0 or higher, but my system's default SQLite3 version was outdated.
+
+**Initial Attempts to Resolve**
+
+1. **Upgrading System SQLite3**: I first attempted to update the SQLite3 version on my Linux virtual machine. Despite successfully upgrading the system-wide SQLite3, the Python environment within Jupyter Notebook continued to reference the older version, as Python's standard library includes its own SQLite3 module compiled during Python's installation.
+
+2. **Recompiling Python**: I considered recompiling Python after upgrading SQLite3 to ensure that Python's built-in `sqlite3` module linked against the updated SQLite3 library. However, this process is time-consuming and may not be feasible in all environments.
+
+**Effective Solution: Utilizing `pysqlite3-binary`**
+
+To resolve the version mismatch without recompiling Python, I discovered the `pysqlite3-binary` package. This package provides a precompiled, up-to-date version of SQLite3 that can override the default module.
+
+**Implementation Steps**
+
+1. **Install `pysqlite3-binary`**: I installed the package in my Python environment using:
+
+   ```bash
+   pip install pysqlite3-binary
+   ```
 
 
+2. **Override the Default `sqlite3` Module**: Before importing ChromaDB or any module that relies on SQLite3, I added the following code to my script or notebook:
+
+   ```python
+   __import__('pysqlite3')
+   import sys
+   sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+   ```
 
 
-check the version of the currently installed sqllite3 on your OS:
+   This code replaces the standard `sqlite3` module with the one provided by `pysqlite3-binary`, ensuring compatibility with ChromaDB.
 
-```shell
-sqllite3 --version
-```
+**Considerations**
 
-If it's below, which should be the case since you're getting the above error, uninstall it:
-```shell
-sudo dnf remove sqlite
-```
+- **Environment Specificity**: It's essential to ensure that `pysqlite3-binary` is installed in the specific Python environment or virtual environment used by your Jupyter Notebook or application.
 
-Also, search for sqlite3 installed via alternate methods:
-```shell
-sudo find /usr/local -name '*sqlite3*'
-```
+- **Order of Imports**: The override must occur before importing any modules that depend on SQLite3 to prevent the older version from being loaded into memory.
 
-For me, it came back as follows:
-```
-sudo find /usr/local -name '*sqlite3*'
-/usr/local/bin/sqlite3
-/usr/local/include/sqlite3.h
-/usr/local/include/sqlite3ext.h
-/usr/local/lib/pkgconfig/sqlite3.pc
-/usr/local/lib/libsqlite3.so.3.49.1
-/usr/local/lib/libsqlite3.so
-/usr/local/lib/libsqlite3.so.0
-/usr/local/lib/libsqlite3.a
-/usr/local/share/man/man1/sqlite3.1
-```
+- **Platform Compatibility**: The `pysqlite3-binary` package is compatible with many Unix-like systems. For Windows users, alternative solutions may be necessary, as the package may not be available or compatible.
 
-I removed them as follows:
-```shell
-sudo rm /usr/local/bin/sqlite3
-sudo rm /usr/local/include/sqlite3.h
-sudo rm /usr/local/include/sqlite3ext.h
-sudo rm /usr/local/lib/pkgconfig/sqlite3.pc
-sudo rm /usr/local/lib/libsqlite3.so.3.49.1
-sudo rm /usr/local/lib/libsqlite3.so
-sudo rm /usr/local/lib/libsqlite3.so.0
-sudo rm /usr/local/lib/libsqlite3.a
-sudo rm /usr/local/share/man/man1/sqlite3.1
-```
-
-Then I checked the paths for any refences to sqlite3:
-```
-echo $PATH
-echo $LD_LIBRARY_PATH
-echo $PKG_CONFIG_PATH
-```
-
-Nothing was there. Then I cleared the cache:
-```shell
-sudo ldconfig
-
-```
-
-At this point, my system doesn't have any sqlite3. 
-
-Now ensure, your python interpreter isn't linked to a previous installation of sqlite3:
-
-```shell
-python3.12 -c "import sqlite3; print('SQLite version:', sqlite3.sqlite_version)"
-```
-
-I still see this:
-```
- python3.12 -c "import sqlite3; print('SQLite version:', sqlite3.sqlite_version)"
-SQLite version: 3.34.1
-```
-
-The Python sqlite3 module is a wrapper around the SQLite library that was present on your system when Python was compiled. Therefore, the version of SQLite that sqlite3 uses is determined at the time Python is built and isn't dynamically linked to the system's SQLite library. This means that even if you've updated the SQLite version on your system, the sqlite3 module will continue to use the older version it was originally compiled with.
-
-1. Uninstalling Python 3.12:
-
-To remove Python 3.12, execute:
-
-bash
-Copy
-Edit
-sudo dnf remove python3.12
-Caution: Removing Python can affect system utilities that depend on it. Ensure that removing this specific version won't disrupt your system.
-
-Download the install the latest sqlite3 as follows:
-
-2. Download the Latest SQLite Source Code:
-
-Download the source code for SQLite version 3.49.1:
-
-bash
-Copy
-Edit
-wget https://www.sqlite.org/2025/sqlite-autoconf-3490100.tar.gz
-3. Extract the Downloaded Archive:
-
-Extract the contents of the tarball:
-
-bash
-Copy
-Edit
-tar xvfz sqlite-autoconf-3490100.tar.gz
-4. Compile and Install SQLite:
-
-Navigate to the extracted directory and compile the source:
-
-bash
-Copy
-Edit
-cd sqlite-autoconf-3490100
-./configure
-make
-sudo make install
-5. Verify the Installation:
-
-Confirm that the latest version of SQLite is installed:
-
-bash
-Copy
-Edit
-sqlite3 --version
-This should display 3.49.1, indicating a successful installation.
-
-2. Reinstalling Python 3.12:
-
-After uninstallation, you can reinstall Python 3.12:
-
-bash
-Copy
-Edit
-sudo dnf install python3.12
-This command installs the python3.12 package, providing the Python 3.12 interpreter. Note that the unversioned python3 command typically points to the system's default Python version (e.g., Python 3.9). To use Python 3.12, you'll need to invoke it explicitly with python3.12.
-
-
+By implementing this solution, I successfully aligned the SQLite3 version with ChromaDB's requirements, enabling seamless functionality within my RAG pipeline. 
