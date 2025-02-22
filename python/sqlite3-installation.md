@@ -32,7 +32,6 @@ To resolve the version mismatch without recompiling Python, I discovered the `py
    pip install pysqlite3-binary
    ```
 
-
 2. **Override the Default `sqlite3` Module**: Before importing ChromaDB or any module that relies on SQLite3, I added the following code to my  notebook:
 
    ```python
@@ -40,8 +39,6 @@ To resolve the version mismatch without recompiling Python, I discovered the `py
    import sys
    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
    ```
-
-
    This code replaces the standard `sqlite3` module with the one provided by `pysqlite3-binary`, ensuring compatibility with ChromaDB.
 
 **Considerations**
@@ -52,4 +49,4 @@ To resolve the version mismatch without recompiling Python, I discovered the `py
 
 - **Platform Compatibility**: The `pysqlite3-binary` package is compatible with many Unix-like systems. For Windows users, alternative solutions may be necessary, as the package may not be available or compatible.
 
-By implementing this solution, I successfully aligned the SQLite3 version with ChromaDB's requirements, enabling seamless functionality within my RAG pipeline. 
+By implementing this solution, I successfully aligned the SQLite3 version with ChromaDB's requirements. 
