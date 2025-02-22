@@ -22,7 +22,7 @@ This error indicated that ChromaDB requires SQLite3 version 3.35.0 or higher, bu
 
 **Effective Solution: Utilizing `pysqlite3-binary`**
 
-To resolve the version mismatch without recompiling Python, I discovered the `pysqlite3-binary` package. This package provides a precompiled, up-to-date version of SQLite3 that can override the default module.
+To resolve the version mismatch without recompiling Python, I discovered the `pysqlite3-binary` package. This package provides a precompiled, a recent version of SQLite3 that can override the default module.
 
 **Implementation Steps**
 
