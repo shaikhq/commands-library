@@ -1,3 +1,32 @@
+When using `chromadb`, I faced the following error of unsupported `sqlite3` version. It turned out that Python3.12 comes with this unsupported version. Here's how I resolved this:
+
+1. installed
+
+```shell
+pip install pysqlite3-binary
+```
+
+2. upgraded chromadb to be compatible with the pysqlite3 version
+   ```shell
+   pip install --upgrade chromadb
+```
+
+3. Upgraded
+```shell
+pip install --upgrade langchain
+```
+Before using chromdb package in my notebook, I added the following code:
+```python
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+```
+
+
+
+
+
+
 check the version of the currently installed sqllite3 on your OS:
 
 ```shell
