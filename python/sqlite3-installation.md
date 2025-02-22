@@ -1,6 +1,6 @@
 # Resolving ChromaDB's SQLite3 Version Compatibility in Python Environments
 
-In the process of developing a Retrieval-Augmented Generation (RAG) pipeline, I integrated ChromaDB as my in-memory vector storage solution. ChromaDB is an open-source vector database designed for efficient storage and retrieval of vector embeddings, which is essential for tasks like semantic search and enhancing large language model (LLM) applications. Internally, ChromaDB utilizes SQLite3, a lightweight, serverless relational database engine, to manage its data storage. SQLite3 is embedded directly into applications, providing a self-contained, zero-configuration database engine that stores data in a single file on disk.
+In the process of developing a Retrieval-Augmented Generation (RAG) pipeline, I integrated ChromaDB as my in-memory vector storage solution. ChromaDB is an open-source vector database designed for storage and retrieval of vector embeddings. Internally, ChromaDB uses SQLite3, a lightweight, serverless relational database engine, to manage its data storage. SQLite3 is embedded directly into applications, providing a self-contained, zero-configuration database engine that stores data in a single file on disk.
 
 **Encountering the Issue**
 
