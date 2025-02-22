@@ -55,3 +55,78 @@ sudo ldconfig
 ```
 
 At this point, my system doesn't have any sqlite3. 
+
+Now ensure, your python interpreter isn't linked to a previous installation of sqlite3:
+
+```shell
+python3.12 -c "import sqlite3; print('SQLite version:', sqlite3.sqlite_version)"
+```
+
+I still see this:
+```
+ python3.12 -c "import sqlite3; print('SQLite version:', sqlite3.sqlite_version)"
+SQLite version: 3.34.1
+```
+
+The Python sqlite3 module is a wrapper around the SQLite library that was present on your system when Python was compiled. Therefore, the version of SQLite that sqlite3 uses is determined at the time Python is built and isn't dynamically linked to the system's SQLite library. This means that even if you've updated the SQLite version on your system, the sqlite3 module will continue to use the older version it was originally compiled with.
+
+1. Uninstalling Python 3.12:
+
+To remove Python 3.12, execute:
+
+bash
+Copy
+Edit
+sudo dnf remove python3.12
+Caution: Removing Python can affect system utilities that depend on it. Ensure that removing this specific version won't disrupt your system.
+
+Download the install the latest sqlite3 as follows:
+
+2. Download the Latest SQLite Source Code:
+
+Download the source code for SQLite version 3.49.1:
+
+bash
+Copy
+Edit
+wget https://www.sqlite.org/2025/sqlite-autoconf-3490100.tar.gz
+3. Extract the Downloaded Archive:
+
+Extract the contents of the tarball:
+
+bash
+Copy
+Edit
+tar xvfz sqlite-autoconf-3490100.tar.gz
+4. Compile and Install SQLite:
+
+Navigate to the extracted directory and compile the source:
+
+bash
+Copy
+Edit
+cd sqlite-autoconf-3490100
+./configure
+make
+sudo make install
+5. Verify the Installation:
+
+Confirm that the latest version of SQLite is installed:
+
+bash
+Copy
+Edit
+sqlite3 --version
+This should display 3.49.1, indicating a successful installation.
+
+2. Reinstalling Python 3.12:
+
+After uninstallation, you can reinstall Python 3.12:
+
+bash
+Copy
+Edit
+sudo dnf install python3.12
+This command installs the python3.12 package, providing the Python 3.12 interpreter. Note that the unversioned python3 command typically points to the system's default Python version (e.g., Python 3.9). To use Python 3.12, you'll need to invoke it explicitly with python3.12.
+
+
