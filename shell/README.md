@@ -1,3 +1,9 @@
+# file names sorting
+__natural sorting of file names__
+```shell
+ls -v | head -10
+```
+
 # history
 __check the number of commands are preserved in command history__
 ```shell
