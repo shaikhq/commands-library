@@ -63,3 +63,9 @@ Installed:
 
 Complete!
 ```
+
+3. Checked the version of installed Python:
+   ```shell
+   python3.12 --version
+   ```                                                                                                                               
+Python 3.12.5
