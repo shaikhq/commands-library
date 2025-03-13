@@ -209,6 +209,13 @@ git clone https://github.com/myrepo.git
 
 Replace the URL with the actual repo URL from Github. 
 
+__DCO sign-off__
+In Git, the Developer Certificate of Origin (DCO) is a statement that contributors add to each of their commits, certifying that they have the right to submit the code under the project's open source license.
+To include a DCO sign-off in a commit, you can use the -s or --signoff flag with the git commit command:​
+```shell
+git commit -s -m "Your commit message"
+```
+
 ## Create a new branch of a Github repository
 Creating a branch allow you to make a copy of the code from the main branch and make changes in the copy without overwritting the copy in the main 
 branch. This can be useful when adding a new feature or fixing bug or adding any code that you don't to push in the main branch. 
