@@ -22,6 +22,12 @@ db2look -d sample -z shaikhq -t DB2ML_BLOGS -e -o db2ml_blogs_ddl.sql
 ```
 
 __create a new db2 instace__
+1. log in as root
+2. cd to the following dir:
+```shell
+cd /opt/ibm/db2/V11.5/instance
+```
+
 using the same id for instance owner and fence id:
 ```shell
 db2icrt -u db2inst2 db2inst2
