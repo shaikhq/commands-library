@@ -20,3 +20,9 @@ __db2look__
 ```shell
 db2look -d sample -z shaikhq -t DB2ML_BLOGS -e -o db2ml_blogs_ddl.sql
 ```
+
+__create a new db2 instace__
+using the same id for instance owner and fence id:
+```shell
+db2icrt -u db2inst2 db2inst2
+```
