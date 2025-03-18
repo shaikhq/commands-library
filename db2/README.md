@@ -30,7 +30,7 @@ cd /opt/ibm/db2/V11.5/instance
 
 using the same id for instance owner and fence id:
 ```shell
-db2icrt -u db2inst2 db2inst2
+./db2icrt -u db2inst2 db2inst2
 ```
 
 __drop an existing db2 instance__
